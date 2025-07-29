@@ -449,25 +449,17 @@
         subject = $.trim(subject);
         email = $.trim(email);
         msg = $.trim(msg);
-
         if (name != '' && email != '' && msg != '') {
           var values = "name=" + name + "&subject=" + subject + "&email=" + email + " &msg=" + msg;
-          $.ajax({
-            type: "POST",
-            url: "assets/php/mail.php",
-            data: values,
-            success: function() {
-              $('#name').val('');
-              $('#subject').val('');
-              $('#email').val('');
-              $('#msg').val('');
+          $('#name').val('');
+          $('#subject').val('');
+          $('#email').val('');
+          $('#msg').val('');
 
-              $('#cf-msg').fadeIn().html('<div class="alert alert-success"><strong>Success!</strong> Email has been sent successfully.</div>');
-              setTimeout(function() {
-                $('#cf-msg').fadeOut('slow');
-              }, 4000);
-            }
-          });
+          $('#cf-msg').fadeIn().html('<div class="alert alert-success"><strong>Success!</strong> Email has been sent successfully.</div>');
+          setTimeout(function() {
+            $('#cf-msg').fadeOut('slow');
+          }, 4000);
         } else {
           $('#cf-msg').fadeIn().html('<div class="alert alert-danger"><strong>Warning!</strong> All fields are required.</div>');
         }
